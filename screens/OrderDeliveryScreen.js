@@ -19,6 +19,7 @@ import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 import MapViewDirections from "react-native-maps-directions";
 import { GOOGLE_MAP_API_KEY } from "@env";
+import { useNavigation } from "@react-navigation/native";
 
 const order = orders[0];
 
@@ -50,6 +51,8 @@ export default function OrderDeliveryScreen() {
   const [isDriverClose, setIsDriverClose] = useState(false);
 
   const snapPoints = useMemo(() => ["12%", "95%"], []);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     (async () => {
@@ -200,7 +203,7 @@ export default function OrderDeliveryScreen() {
         <ArrowLeftCircleIcon
           onPress={() => navigation.goBack()}
           size={48}
-          color="black"
+          color="#00803D"
           style={{
             top: 40,
             left: 15,
