@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import OrdersScreen from "./screens/OrdersScreen";
-import OrderDeliveryScreen from "./screens/OrderDelivery";
+import OrderDeliveryScreen from "./screens/OrderDeliveryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
