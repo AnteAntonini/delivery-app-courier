@@ -8,6 +8,7 @@ import {
 import React, { useRef, useMemo, useEffect, useState } from "react";
 import BottomSheet from "@gorhom/bottom-sheet";
 import {
+  ArrowLeftCircleIcon,
   BuildingStorefrontIcon,
   MapPinIcon,
   ShoppingBagIcon,
@@ -195,15 +196,27 @@ export default function OrderDeliveryScreen() {
           </View>
         </Marker>
       </MapView>
+      {deliveryStatus === ORDER_STATUSES.READY_FOR_PICKUP && (
+        <ArrowLeftCircleIcon
+          onPress={() => navigation.goBack()}
+          size={48}
+          color="black"
+          style={{
+            top: 40,
+            left: 15,
+            position: "absolute",
+          }}
+        />
+      )}
       <BottomSheet ref={bottomSheetRef} snapPoints={snapPoints}>
         <View className="justify-center items-center">
           <View className="border-b-2 border-gray-400 w-full justify-center items-center">
             <View className="flex-row items-center mt-4 mb-6 ">
-              <Text className="text-2xl font-semibold">
+              <Text className="text-2xl font-semibold mr-2">
                 {Math.ceil(totalMinutes)} min
               </Text>
               <ShoppingBagIcon size={24} color="green" />
-              <Text className="text-2xl font-semibold">
+              <Text className="text-2xl font-semibold ml-2">
                 {totalKm.toFixed(2)} km
                 {/* napraviti funkciju da preracuna kada je ispod kilometra da budu metri */}
               </Text>
