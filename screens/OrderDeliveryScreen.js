@@ -153,7 +153,11 @@ export default function OrderDeliveryScreen() {
       >
         <MapViewDirections
           origin={driverLocation}
-          destination={deliveryLocation}
+          destination={
+            deliveryStatus === ORDER_STATUSES.ACCEPTED
+              ? restaurantLocation
+              : deliveryLocation
+          }
           strokeWidth={6}
           waypoints={
             deliveryStatus === ORDER_STATUSES.READY_FOR_PICKUP
