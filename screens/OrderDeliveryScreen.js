@@ -170,9 +170,7 @@ export default function OrderDeliveryScreen() {
           }
           strokeColor="#3FC060"
           onReady={(result) => {
-            if (result.distance <= 0.1) {
-              setIsDriverClose(true);
-            }
+            setIsDriverClose(result.distance <= 0.1);
             setTotalMinutes(result.duration);
             setTotalKm(result.distance);
           }}
